@@ -34,7 +34,7 @@
         </form>
     </div>
 
-    {{-- ツールエリア（エクスポート・ページネーション） --}}
+    {{-- ツールエリア --}}
     <div class="admin-tools">
         <form action="{{ route('admin.export') }}" method="GET">
             <input type="hidden" name="keyword" value="{{ request('keyword') }}">
@@ -44,7 +44,6 @@
             <button type="submit" class="btn-export">エクスポート</button>
         </form>
 
-        {{-- ページネーションのリンク --}}
         <div class="pagination-wrapper">
             {{ $contacts->links() }}
         </div>
@@ -63,19 +62,35 @@
         </thead>
         <tbody>
             @foreach($contacts as $contact)
+            @php $genders = [1 => '男性', 2 => '女性', 3 => 'その他']; @endphp
             <tr>
                 <td>{{ $contact->last_name }}　{{ $contact->first_name }}</td>
-                <td>
-                    @php
-                        $genders = [1 => '男性', 2 => '女性', 3 => 'その他'];
-                    @endphp
-                    {{ $genders[$contact->gender] }}
-                </td>
+                <td>{{ $genders[$contact->gender] }}</td>
                 <td>{{ $contact->email }}</td>
                 <td>{{ $contact->category->content }}</td>
                 <td>
-                    {{-- モーダル表示用ボタン --}}
-                    <button class="btn-detail" onclick="showModal({{ $contact->id }})">詳細</button>
+                    {{-- 修正ポイント：showModalに this を渡すように変更 --}}
+                    <button class="btn-detail" onclick="showModal(this)">詳細</button>
+
+                    {{-- 【重要】隠しデータエリア：この行のデータをモーダルに表示させるための箱 --}}
+                    <div class="contact-data" style="display: none;">
+                        <table class="modal-inner-table">
+                            <tr><th>お名前</th><td>{{ $contact->last_name }}　{{ $contact->first_name }}</td></tr>
+                            <tr><th>性別</th><td>{{ $genders[$contact->gender] }}</td></tr>
+                            <tr><th>メールアドレス</th><td>{{ $contact->email }}</td></tr>
+                            <tr><th>電話番号</th><td>{{ $contact->tel }}</td></tr>
+                            <tr><th>住所</th><td>{{ $contact->address }}</td></tr>
+                            <tr><th>建物名</th><td>{{ $contact->building }}</td></tr>
+                            <tr><th>お問い合わせの種類</th><td>{{ $contact->category->content }}</td></tr>
+                            <tr><th>お問い合わせ内容</th><td>{{ $contact->detail }}</td></tr>
+                        </table>
+                        {{-- 削除ボタン --}}
+                        <form action="{{ route('admin.delete') }}" method="POST" class="delete-form">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $contact->id }}">
+                            <button type="submit" class="btn-delete-submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+                        </form>
+                    </div>
                 </td>
             </tr>
             @endforeach
@@ -83,13 +98,40 @@
     </table>
 </div>
 
-{{-- 詳細モーダル（JavaScriptで表示を制御する想定） --}}
-<div id="detail-modal" class="modal">
+{{-- 詳細モーダル --}}
+<div id="detail-modal" class="modal" style="display: none;">
     <div class="modal-content">
-        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div class="modal-close-wrapper">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
         <div id="modal-body">
-            {{-- ここにJSでデータを流し込むか、各行ごとに隠しタグで持っておく --}}
+            {{-- ここにJSでデータが流し込まれます --}}
         </div>
     </div>
 </div>
+
+{{-- 動きをつけるためのJavaScript --}}
+<script>
+function showModal(btn) {
+    // ボタンのすぐ隣にある「contact-data」クラスのHTMLを取得
+    const data = btn.nextElementSibling.innerHTML;
+    // モーダルの body 部分にそのHTMLをコピーする
+    document.getElementById('modal-body').innerHTML = data;
+    // モーダルを表示する（CSSで設定した .modal に合わせる）
+    document.getElementById('detail-modal').style.display = 'flex';
+}
+
+function closeModal() {
+    // モーダルを非表示にする
+    document.getElementById('detail-modal').style.display = 'none';
+}
+
+// モーダルの外側をクリックした時も閉じるようにする場合（お好みで）
+window.onclick = function(event) {
+    const modal = document.getElementById('detail-modal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+</script>
 @endsection
