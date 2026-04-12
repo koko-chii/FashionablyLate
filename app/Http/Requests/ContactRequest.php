@@ -12,6 +12,14 @@ class ContactRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        // tel1, tel2, tel3 を結合して 'tel' というキーで保存する
+        $this->merge([
+            'tel' => $this->tel1 . $this->tel2 . $this->tel3,
+        ]);
+    }
+
     public function rules(): array
     {
         return [
@@ -19,7 +27,7 @@ class ContactRequest extends FormRequest
             'last_name' => ['required', 'string', 'max:8'],
             'gender' => ['required'],
             'email' => ['required', 'email'],
-            'tel' => ['required', 'numeric', 'digits_between:1,5'],
+            'tel' => ['required', 'numeric', 'digits_between:10,11'],
             'category_id' => ['required'],
             'detail' => ['required', 'max:120'],
         ];
