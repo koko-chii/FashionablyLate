@@ -29,6 +29,10 @@
                 @enderror
             </div>
 
+            @error('login_error')
+                <p class="error-message">{{ $message }}</p>
+            @enderror
+
             <div class="form-btn">
                 <button type="submit" class="btn-login">ログイン</button>
             </div>
