@@ -6,18 +6,18 @@
   <title>FashionablyLate</title>
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
   <link rel="stylesheet" href="{{ asset('css/common.css') }}">
-  @yield('css') <!-- 各画面固有のCSS用 -->
+  @yield('css')
 </head>
 <body>
   <header class="header">
     <div class="header__inner">
       <a class="header__logo" href="/">FashionablyLate</a>
-      @yield('header-nav') <!-- ログイン/ログアウトボタン用 -->
+      @yield('header-nav')
     </div>
   </header>
 
   <main>
-    @yield('content') <!-- ここに各画面の内容が入る -->
+    @yield('content')
   </main>
 </body>
 </html>
