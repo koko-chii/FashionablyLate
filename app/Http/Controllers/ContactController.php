@@ -37,6 +37,8 @@ class ContactController extends Controller
             'email', 'tel', 'address', 'building', 'detail'
         ]);
 
+    $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
+
         Contact::create($contact);
 
         return view('thanks');
