@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+@endsection
+
+@section('header-nav')
+<nav>
+    <a class="header-nav__button" href="/register">register</a>
+</nav>
+@endsection
+
 @section('content')
 <div class="login-content">
     <div class="login-header">

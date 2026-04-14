@@ -42,3 +42,19 @@
     cursor: pointer;
     font-size: 14px;
 }
+
+.header-nav__button {
+    display: inline-block;
+    background-color: #f4f4f4; /* 見本通りの薄いグレー */
+    color: #8b7969;           /* 文字はブラウン */
+    text-decoration: none;    /* 下線を消す */
+    padding: 7px 20px;        /* ボタンのサイズ */
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.header-nav__button:hover {
+    background-color: #edeae8; /* ホバー時に少し色を変える */
+}

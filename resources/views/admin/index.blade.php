@@ -4,6 +4,15 @@
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @endsection
 
+@section('header-nav')
+<nav>
+    <form action="/logout" method="post">
+        @csrf
+        <button class="header-nav__button">logout</button>
+    </form>
+</nav>
+@endsection
+
 @section('content')
 <div class="admin-content">
     <div class="admin-header">
