@@ -68,7 +68,7 @@
             @foreach($contacts as $contact)
             @php $genders = [1 => '男性', 2 => '女性', 3 => 'その他']; @endphp
             <tr>
-                <td>{{ $contact->last_name }}　{{ $contact->first_name }}</td>
+                <td>{{ $contact->first_name }}　{{ $contact->last_name }}</td>
                 <td>{{ $genders[$contact->gender] }}</td>
                 <td>{{ $contact->email }}</td>
                 <td>{{ $contact->category->content }}</td>
@@ -79,7 +79,7 @@
                     {{-- 【重要】隠しデータエリア：この行のデータをモーダルに表示させるための箱 --}}
                     <div class="contact-data" style="display: none;">
                         <table class="modal-inner-table">
-                            <tr><th>お名前</th><td>{{ $contact->last_name }}　{{ $contact->first_name }}</td></tr>
+                            <tr><th>お名前</th><td>{{ $contact->first_name }}　{{ $contact->last_name }}</td></tr>
                             <tr><th>性別</th><td>{{ $genders[$contact->gender] }}</td></tr>
                             <tr><th>メールアドレス</th><td>{{ $contact->email }}</td></tr>
                             <tr><th>電話番号</th><td>{{ $contact->tel }}</td></tr>

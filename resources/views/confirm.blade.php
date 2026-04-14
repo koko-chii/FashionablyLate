@@ -12,9 +12,9 @@
             <tr>
                 <th>お名前</th>
                 <td>
-                    {{ $contact['last_name'] }}　{{ $contact['first_name'] }}
-                    <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}">
+                    {{ $contact['first_name'] }}　{{ $contact['last_name'] }}
                     <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}">
+                    <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}">
                 </td>
             </tr>
             <tr>
@@ -39,7 +39,9 @@
                 <th>電話番号</th>
                 <td>
                     {{ $contact['tel'] }}
-                    <input type="hidden" name="tel" value="{{ $contact['tel'] }}">
+                    <input type="hidden" name="tel1" value="{{ $contact['tel1'] }}">
+                    <input type="hidden" name="tel2" value="{{ $contact['tel2'] }}">
+                    <input type="hidden" name="tel3" value="{{ $contact['tel3'] }}">
                 </td>
             </tr>
             <tr>
