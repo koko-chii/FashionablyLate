@@ -1,7 +1,8 @@
 .header {
     background-color: #fff;
     border-bottom: 1px solid #e0dfde;
-    height: 90px;
+    padding: 20px 0;
+    height: 70px;
     display: flex;
     align-items: center;
 }
