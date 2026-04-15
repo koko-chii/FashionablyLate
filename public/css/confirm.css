@@ -18,11 +18,25 @@
     letter-spacing: 2px;
 }
 
+.confirm-table-inner {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
 /* テーブル全体のスタイル */
 .confirm-table {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed; /* 列の幅を固定 */
+    table-layout: fixed;
+    border: none;
+}
+
+.confirm-table th,
+.confirm-table td {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 30px;
 }
 
 /* 左側のヘッダー（お名前、性別など） */

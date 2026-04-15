@@ -63,52 +63,54 @@
     </div>
 
     {{-- 一覧テーブル --}}
-    <table class="admin-table">
-        <thead>
-            <tr>
-                <th>お名前</th>
-                <th>性別</th>
-                <th>メールアドレス</th>
-                <th>お問い合わせの種類</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($contacts as $contact)
-            @php $genders = [1 => '男性', 2 => '女性', 3 => 'その他']; @endphp
-            <tr>
-                <td>{{ $contact->first_name }}　{{ $contact->last_name }}</td>
-                <td>{{ $genders[$contact->gender] }}</td>
-                <td>{{ $contact->email }}</td>
-                <td>{{ $contact->category->content }}</td>
-                <td>
-                    {{-- 修正ポイント：showModalに this を渡すように変更 --}}
-                    <button class="btn-detail" onclick="showModal(this)">詳細</button>
+    <div class="admin-table-wrapper">
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>お名前</th>
+                    <th>性別</th>
+                    <th>メールアドレス</th>
+                    <th>お問い合わせの種類</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($contacts as $contact)
+                @php $genders = [1 => '男性', 2 => '女性', 3 => 'その他']; @endphp
+                <tr>
+                    <td>{{ $contact->first_name }}　{{ $contact->last_name }}</td>
+                    <td>{{ $genders[$contact->gender] }}</td>
+                    <td>{{ $contact->email }}</td>
+                    <td>{{ $contact->category->content }}</td>
+                    <td>
+                        {{-- 修正ポイント：showModalに this を渡すように変更 --}}
+                        <button class="btn-detail" onclick="showModal(this)">詳細</button>
 
-                    {{-- 【重要】隠しデータエリア：この行のデータをモーダルに表示させるための箱 --}}
-                    <div class="contact-data" style="display: none;">
-                        <table class="modal-inner-table">
-                            <tr><th>お名前</th><td>{{ $contact->first_name }}　{{ $contact->last_name }}</td></tr>
-                            <tr><th>性別</th><td>{{ $genders[$contact->gender] }}</td></tr>
-                            <tr><th>メールアドレス</th><td>{{ $contact->email }}</td></tr>
-                            <tr><th>電話番号</th><td>{{ $contact->tel }}</td></tr>
-                            <tr><th>住所</th><td>{{ $contact->address }}</td></tr>
-                            <tr><th>建物名</th><td>{{ $contact->building }}</td></tr>
-                            <tr><th>お問い合わせの種類</th><td>{{ $contact->category->content }}</td></tr>
-                            <tr><th>お問い合わせ内容</th><td>{{ $contact->detail }}</td></tr>
-                        </table>
-                        {{-- 削除ボタン --}}
-                        <form action="{{ route('admin.delete') }}" method="POST" class="delete-form">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $contact->id }}">
-                            <button type="submit" class="btn-delete-submit" onclick="return confirm('本当に削除しますか？')">削除</button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+                        {{-- 【重要】隠しデータエリア：この行のデータをモーダルに表示させるための箱 --}}
+                        <div class="contact-data" style="display: none;">
+                            <table class="modal-inner-table">
+                                <tr><th>お名前</th><td>{{ $contact->first_name }}　{{ $contact->last_name }}</td></tr>
+                                <tr><th>性別</th><td>{{ $genders[$contact->gender] }}</td></tr>
+                                <tr><th>メールアドレス</th><td>{{ $contact->email }}</td></tr>
+                                <tr><th>電話番号</th><td>{{ $contact->tel }}</td></tr>
+                                <tr><th>住所</th><td>{{ $contact->address }}</td></tr>
+                                <tr><th>建物名</th><td>{{ $contact->building }}</td></tr>
+                                <tr><th>お問い合わせの種類</th><td>{{ $contact->category->content }}</td></tr>
+                                <tr><th>お問い合わせ内容</th><td>{{ $contact->detail }}</td></tr>
+                            </table>
+                            {{-- 削除ボタン --}}
+                            <form action="{{ route('admin.delete') }}" method="POST" class="delete-form">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $contact->id }}">
+                                <button type="submit" class="btn-delete-submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 {{-- 詳細モーダル --}}
