@@ -141,12 +141,5 @@ function closeModal() {
     document.getElementById('detail-modal').style.display = 'none';
 }
 
-// モーダルの外側をクリックした時も閉じるようにする場合（お好みで）
-window.onclick = function(event) {
-    const modal = document.getElementById('detail-modal');
-    if (event.target == modal) {
-        closeModal();
-    }
-}
 </script>
 @endsection
