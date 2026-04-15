@@ -1,0 +1,5 @@
+{
+    "The email field is required.": "メールアドレスを入力してください",
+    "The password field is required.": "パスワードを入力してください",
+    "These credentials do not match our records.": "メールアドレスまたはパスワードが正しくありません"
+}

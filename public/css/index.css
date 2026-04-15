@@ -75,6 +75,12 @@ textarea {
     align-items: center;
 }
 
+.form__input--name input,
+.form__input--tel input {
+    flex: 1;
+    width: auto;
+}
+
 /* ラジオボタン：見本に合わせて間隔を広げる */
 .form__input--radio {
     display: flex;
@@ -124,10 +130,24 @@ textarea {
     background-color: #a38f7d;
 }
 
-/* エラーメッセージ（少し隙間をあける） */
 .form__error {
     color: #ff0000;
     font-size: 12px;
     margin-top: 2px;
     min-height: 15px;
+}
+
+.form__error--flex {
+    display: flex;
+    gap: 15px;
+}
+
+.form__error--item {
+    flex: 1;
+    color: #ff0000;
+    font-size: 12px;
+}
+
+.form__error--tel {
+    margin-top: 2px;
 }

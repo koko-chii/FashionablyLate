@@ -22,9 +22,14 @@
                         <input type="text" name="first_name" placeholder="例: 山田" value="{{ old('first_name') }}" />
                         <input type="text" name="last_name" placeholder="例: 太郎" value="{{ old('last_name') }}" />
                     </div>
-                    <div class="form__error">
-                        @error('first_name') {{ $message }} @enderror
-                        @error('last_name') {{ $message }} @enderror
+
+                    <div class="form__error form__error--flex">
+                        <div class="form__error--item">
+                            @error('first_name') {{ $message }} @enderror
+                        </div>
+                        <div class="form__error--item">
+                            @error('last_name') {{ $message }} @enderror
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,7 +60,7 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="email" name="email" placeholder="例: test@example.com" value="{{ old('email') }}" />
+                        <input type="test" name="email" placeholder="例: test@example.com" value="{{ old('email') }}" />
                     </div>
                     <div class="form__error">
                         @error('email') {{ $message }} @enderror
@@ -78,9 +83,9 @@
                         <input type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
                     </div>
                     <div class="form__error">
-                        @error('tel')
-                            {{ $message }}
-                        @enderror
+                        @error('tel1') {{ $message }} @enderror
+                        @error('tel2') {{ $message }} @enderror
+                        @error('tel3') {{ $message }} @enderror
                     </div>
                 </div>
             </div>

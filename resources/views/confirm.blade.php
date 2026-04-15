@@ -43,7 +43,7 @@
                 <tr>
                     <th>電話番号</th>
                     <td>
-                        {{ $contact['tel'] }}
+                        {{ $contact['tel1'] }}{{ $contact['tel2'] }}{{ $contact['tel3'] }}
                         <input type="hidden" name="tel1" value="{{ $contact['tel1'] }}">
                         <input type="hidden" name="tel2" value="{{ $contact['tel2'] }}">
                         <input type="hidden" name="tel3" value="{{ $contact['tel3'] }}">

@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label for="email">メールアドレス</label>
                 <div class="form-input">
-                    <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="test@example.com">
+                    <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="test@example.com">
                 </div>
                 @error('email')
                 <p class="error-message">{{ $message }}</p>

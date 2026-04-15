@@ -92,7 +92,7 @@
                                 <tr><th>お名前</th><td>{{ $contact->first_name }}　{{ $contact->last_name }}</td></tr>
                                 <tr><th>性別</th><td>{{ $genders[$contact->gender] }}</td></tr>
                                 <tr><th>メールアドレス</th><td>{{ $contact->email }}</td></tr>
-                                <tr><th>電話番号</th><td>{{ $contact->tel }}</td></tr>
+                                <tr><th>電話番号</th><td>{{ str_replace('-', '', $contact->tel) }}</td></tr>
                                 <tr><th>住所</th><td>{{ $contact->address }}</td></tr>
                                 <tr><th>建物名</th><td>{{ $contact->building }}</td></tr>
                                 <tr><th>お問い合わせの種類</th><td>{{ $contact->category->content }}</td></tr>
