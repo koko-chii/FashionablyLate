@@ -1,0 +1,229 @@
+.admin-content {
+    padding: 20px 5%;
+    background-color: #fff;
+    min-height: 80vh;
+}
+
+.admin-header h2 {
+    text-align: center;
+    color: #8b7969;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    border: 2px solid #8b7969;
+    padding: 15px 30px;
+    margin-bottom: 20px;
+}
+
+.search-form__inner {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.search-form__inner input,
+.search-form__inner select,
+.search-form__inner input[type="date"] {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    height: 35px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.btn-search,
+.btn-reset {
+    height: 35px;
+    padding: 0 20px;
+}
+
+.btn-search {
+    background-color: #8b7969;
+    color: #fff;
+    border: none;
+    padding: 0 30px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.btn-reset {
+    color: #fff;
+    text-decoration: none;
+    background-color: #d9c6b5;
+    padding: 0 30px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    min-width: 100px;
+}
+
+.admin-tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
+.btn-export {
+    background-color: #edeae8;
+    color: #8b7969;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+}
+
+.admin-table-wrapper {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;        /
+    overflow: hidden;          /
+    margin-bottom: 20px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table th {
+    background-color: #8b7969;
+    color: #fff;
+    padding: 8px 15px;
+    font-weight: normal;
+}
+
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.btn-detail {
+    background-color: #fff;
+    color: #8b7969;
+    border: 1px solid #edeae8;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 40px;
+    width: 600px;
+    max-width: 90%;
+    position: relative;
+}
+
+.modal-close-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.modal-close {
+    background: none;
+    border: 1px solid #8b7969;
+    color: #8b7969;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.modal-inner-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.modal-inner-table th {
+    text-align: left;
+    width: 30%;
+    padding: 15px 0;
+    vertical-align: top;
+}
+
+.modal-inner-table td {
+    padding: 15px 0;
+    color: #333;
+}
+
+.btn-delete-submit {
+    display: block;
+    margin: 0 auto;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+}
+
+.pagination-wrapper svg {
+    width: 20px;
+}
+
+.pagination-wrapper {
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination li a,
+.pagination li span {
+    display: block;
+    padding: 8px 15px;
+    border: 1px solid #edeae8;
+    color: #8b7969;
+    text-decoration: none;
+}
+
+.pagination li.active span {
+    background-color: #8b7969;
+    color: #fff;
+    border-color: #8b7969;
+}
+
+/* 非表示にしたい説明テキスト（"Showing 1 to 7..." など）を隠す */
+.pagination-wrapper nav .flex.justify-between.items-center {
+    display: none;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.2s ease;
+}

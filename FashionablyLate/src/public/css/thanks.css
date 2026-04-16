@@ -1,0 +1,58 @@
+/* public/css/thanks.css */
+
+.thanks-content {
+    position: relative; /* 背景テキストを自由に配置するため */
+    height: 80vh;      /* 画面の中央に寄せるための高さ設定 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+/* 背景の大きな "Thank you" */
+.thanks-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1; /* 重なりの順序：下 */
+}
+
+.thanks-background span {
+    font-size: 160px; /* 見本に合わせた特大サイズ */
+    font-weight: bold;
+    color: #f4f4f4;  /* 非常に薄いグレー（画像に合わせる） */
+    font-family: 'serif';
+    white-space: nowrap;
+}
+
+/* 前面のメッセージ */
+.thanks-message {
+    position: relative;
+    z-index: 2; /* 重なりの順序：上 */
+    text-align: center;
+}
+
+.thanks-message p {
+    font-size: 18px;
+    color: #8b7969; /* 落ち着いた茶色 */
+    margin-bottom: 30px;
+}
+
+/* HOMEボタン */
+.btn-home {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: #8b7969;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-home:hover {
+    opacity: 0.8;
+}
