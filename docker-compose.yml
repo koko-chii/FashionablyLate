@@ -21,11 +21,24 @@ services:
         container_name: "mysql-docker-compose"
         environment:
             MYSQL_ROOT_PASSWORD: password
-            MYSQL_DATABASE: first_db
-            MYSQL_USER: first_user
-            MYSQL_PASSWORD: first_pass
+            MYSQL_DATABASE: FashionablyLate_db
+            MYSQL_USER: FashionablyLate_user
+            MYSQL_PASSWORD: FashionablyLate_pass
         command:
             mysqld --default-authentication-plugin=mysql_native_password
         volumes:
             - ./docker/mysql/data:/var/lib/mysql
             - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        container_name: "phpmyadmin-docker-compose"
+        environment:
+            - PMA_ARBITRARY=1
+            - PMA_HOST=mysql
+            - PMA_USER=root
+            - PMA_PASSWORD=password
+        ports:
+            - "8080:80"
+        depends_on:
+            - mysql
