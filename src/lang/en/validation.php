@@ -195,6 +195,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'first_name' => '姓',
+        'last_name'  => '名',
+        'email'      => 'メールアドレス',
+        'tel'        => '電話番号',
+        'address'    => '住所',
+        'detail'     => 'お問い合わせ内容',
+    ],
 
 ];

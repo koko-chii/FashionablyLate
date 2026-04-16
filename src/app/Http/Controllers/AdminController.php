@@ -52,7 +52,7 @@ class AdminController extends Controller
     {
         \App\Models\Contact::find($request->id)->delete();
 
-        return redirect()->route('admin.index')->with('success', '削除しました');;
+        return redirect()->back()->with('success', '削除しました');
     }
 
     public function export(Request $request)

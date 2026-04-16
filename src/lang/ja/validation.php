@@ -2,7 +2,8 @@
 return [
     'required' => ':attributeを入力してください',
     'attributes' => [
-        'email' => 'メールアドレス',
+    'address' => '住所',
+    'email' => 'メールアドレス',
         'password' => 'パスワード',
     ],
 ];
