@@ -1,6 +1,6 @@
 # お問い合わせフォーム
 
-このリポジトリは、laravelを利用した 基礎学習ターム 確認テスト お問い合わせフォームアプリです。
+このリポジトリは、laravelを利用した 基礎学習ターム確認テストの お問い合わせフォームアプリです。
 
 ## 環境構築
 
@@ -31,7 +31,6 @@ DB_PORT=3306
 DB_DATABASE=FashionablyLate_db
 DB_USERNAME=FashionablyLate_user
 DB_PASSWORD=FashionablyLate_pass
-
 ```
 
 #### ディレクトリの移動
@@ -51,6 +50,7 @@ docker compose up -d
 ```
 docker compose exec -u 1000 php composer install
 ```
+
 ### キー生成
 
 ```
