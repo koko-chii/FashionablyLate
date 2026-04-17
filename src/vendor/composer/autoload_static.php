@@ -556,11 +556,15 @@ class ComposerStaticInitc57754c93ae34ac3b9b716a0fd2f2149
     );
 
     public static $classMap = array (
+        'App\\Actions\\Fortify\\CreateNewUser' => __DIR__ . '/../..' . '/app/Actions/Fortify/CreateNewUser.php',
+        'App\\Actions\\Fortify\\PasswordValidationRules' => __DIR__ . '/../..' . '/app/Actions/Fortify/PasswordValidationRules.php',
+        'App\\Actions\\Fortify\\ResetUserPassword' => __DIR__ . '/../..' . '/app/Actions/Fortify/ResetUserPassword.php',
+        'App\\Actions\\Fortify\\UpdateUserPassword' => __DIR__ . '/../..' . '/app/Actions/Fortify/UpdateUserPassword.php',
+        'App\\Actions\\Fortify\\UpdateUserProfileInformation' => __DIR__ . '/../..' . '/app/Actions/Fortify/UpdateUserProfileInformation.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
-        'App\\Http\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegisterController.php',
         'App\\Http\\Requests\\ContactRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ContactRequest.php',
         'App\\Http\\Requests\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/LoginRequest.php',
         'App\\Http\\Requests\\RegisterRequest' => __DIR__ . '/../..' . '/app/Http/Requests/RegisterRequest.php',
@@ -568,6 +572,7 @@ class ComposerStaticInitc57754c93ae34ac3b9b716a0fd2f2149
         'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
+        'App\\Providers\\FortifyServiceProvider' => __DIR__ . '/../..' . '/app/Providers/FortifyServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'BaconQrCode\\Common\\BitArray' => __DIR__ . '/..' . '/bacon/bacon-qr-code/src/Common/BitArray.php',
         'BaconQrCode\\Common\\BitMatrix' => __DIR__ . '/..' . '/bacon/bacon-qr-code/src/Common/BitMatrix.php',

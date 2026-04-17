@@ -1,16 +1,12 @@
-/* public/css/register.css */
-
-/* 背景全体を薄いベージュに */
 .register-content {
     background-color: #f2eee9;
-    min-height: calc(100vh - 80px); /* ヘッダーの高さを除いた全画面 */
+    min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 60px;
 }
 
-/* タイトル：Register */
 .register-header h2 {
     color: #8b7969;
     font-size: 28px;
@@ -19,7 +15,6 @@
     letter-spacing: 2px;
 }
 
-/* 中央の白いボックス */
 .register-form-inner {
     background-color: #ffffff;
     padding: 60px 80px;
@@ -39,7 +34,6 @@
     font-size: 16px;
 }
 
-/* 入力欄のスタイル */
 .form-input input {
     width: 100%;
     padding: 12px 15px;
@@ -49,7 +43,6 @@
     font-size: 14px;
 }
 
-/* 登録ボタン：見本のブラウン */
 .form-btn {
     margin-top: 50px;
     text-align: center;
@@ -69,14 +62,12 @@
     background-color: #a38f7d;
 }
 
-/* エラーメッセージ */
 .error-message {
     color: #ff0000;
     font-size: 13px;
     margin-top: 5px;
 }
 
-/* プレースホルダー */
 ::placeholder {
     color: #ccc;
 }

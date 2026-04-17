@@ -83,7 +83,6 @@
                     <td>{{ $contact->email }}</td>
                     <td>{{ $contact->category->content }}</td>
                     <td>
-                        {{-- 修正ポイント：showModalに this を渡すように変更 --}}
                         <button class="btn-detail" onclick="showModal(this)">詳細</button>
 
                         {{-- 【重要】隠しデータエリア：この行のデータをモーダルに表示させるための箱 --}}

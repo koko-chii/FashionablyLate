@@ -11,7 +11,6 @@
         </div>
         <form class="form" action="/confirm" method="post">
             @csrf
-            <!-- お名前 -->
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">お名前</span>
@@ -34,7 +33,6 @@
                 </div>
             </div>
 
-            <!-- 性別 -->
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">性別</span>
@@ -52,7 +50,6 @@
                 </div>
             </div>
 
-            <!-- メールアドレス -->
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">メールアドレス</span>
@@ -68,7 +65,6 @@
                 </div>
             </div>
 
-            <!-- 電話番号 -->
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">電話番号</span>
@@ -76,21 +72,30 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--tel">
-                        <input type="tel" name="tel1" placeholder="080" value="{{ old('tel1') }}" />
-                        <span>-</span>
-                        <input type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}" />
-                        <span>-</span>
-                        <input type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
-                    </div>
-                    <div class="form__error">
-                        @error('tel1') {{ $message }} @enderror
-                        @error('tel2') {{ $message }} @enderror
-                        @error('tel3') {{ $message }} @enderror
+                        <div class="tel-container">
+                            <input type="tel" name="tel1" placeholder="080" value="{{ old('tel1') }}" />
+                            <div class="form__error">
+                                @error('tel1') {{ $message }} @enderror
+                            </div>
+                        </div>
+                        <span class="tel-separator">-</span>
+                        <div class="tel-container">
+                            <input type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}" />
+                            <div class="form__error">
+                                @error('tel2') {{ $message }} @enderror
+                            </div>
+                        </div>
+                        <span class="tel-separator">-</span>
+                        <div class="tel-container">
+                            <input type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
+                            <div class="form__error">
+                                @error('tel3') {{ $message }} @enderror
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 住所 -->
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">住所</span>
@@ -106,7 +111,6 @@
                 </div>
             </div>
 
-            <!-- 建物名 -->
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">建物名</span>
@@ -118,7 +122,6 @@
                 </div>
             </div>
 
-        <!-- お問い合わせの種類 -->
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">お問い合わせの種類</span>
@@ -141,7 +144,6 @@
                 </div>
             </div>
 
-            <!-- お問い合わせ内容 -->
             <div class="form__group">
                 <div class="form__group-title">
                     <span class="form__label--item">お問い合わせ内容</span>

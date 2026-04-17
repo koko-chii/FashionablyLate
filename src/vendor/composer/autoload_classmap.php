@@ -6,11 +6,15 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Actions\\Fortify\\CreateNewUser' => $baseDir . '/app/Actions/Fortify/CreateNewUser.php',
+    'App\\Actions\\Fortify\\PasswordValidationRules' => $baseDir . '/app/Actions/Fortify/PasswordValidationRules.php',
+    'App\\Actions\\Fortify\\ResetUserPassword' => $baseDir . '/app/Actions/Fortify/ResetUserPassword.php',
+    'App\\Actions\\Fortify\\UpdateUserPassword' => $baseDir . '/app/Actions/Fortify/UpdateUserPassword.php',
+    'App\\Actions\\Fortify\\UpdateUserProfileInformation' => $baseDir . '/app/Actions/Fortify/UpdateUserProfileInformation.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
+    'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\ContactController' => $baseDir . '/app/Http/Controllers/ContactController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-    'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
-    'App\\Http\\Controllers\\RegisterController' => $baseDir . '/app/Http/Controllers/RegisterController.php',
     'App\\Http\\Requests\\ContactRequest' => $baseDir . '/app/Http/Requests/ContactRequest.php',
     'App\\Http\\Requests\\LoginRequest' => $baseDir . '/app/Http/Requests/LoginRequest.php',
     'App\\Http\\Requests\\RegisterRequest' => $baseDir . '/app/Http/Requests/RegisterRequest.php',
@@ -18,6 +22,7 @@ return array(
     'App\\Models\\Contact' => $baseDir . '/app/Models/Contact.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
+    'App\\Providers\\FortifyServiceProvider' => $baseDir . '/app/Providers/FortifyServiceProvider.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'BaconQrCode\\Common\\BitArray' => $vendorDir . '/bacon/bacon-qr-code/src/Common/BitArray.php',
     'BaconQrCode\\Common\\BitMatrix' => $vendorDir . '/bacon/bacon-qr-code/src/Common/BitMatrix.php',

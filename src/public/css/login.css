@@ -1,16 +1,12 @@
-/* public/css/login.css */
-
-/* 背景全体を見本のベージュ色に */
 .login-content {
-    background-color: #f2eee9; /* 見本に近いベージュ */
-    min-height: calc(100vh - 80px); /* ヘッダー分を引いて全画面に広げる */
+    background-color: #f2eee9;
+    min-height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 60px;
 }
 
-/* 「Login / Register」のタイトル */
 .login-header h2 {
     color: #8b7969;
     font-size: 28px;
@@ -19,12 +15,11 @@
     letter-spacing: 2px;
 }
 
-/* 中央の白いボックス */
 .login-form-inner {
     background-color: #ffffff;
     padding: 60px 80px;
     width: 100%;
-    max-width: 600px; /* 見本のような縦長のボックス感 */
+    max-width: 600px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -39,17 +34,15 @@
     font-size: 16px;
 }
 
-/* 入力欄：枠線を消して薄いグレーに */
 .form-input input {
     width: 100%;
     padding: 12px 15px;
     border: none;
-    background-color: #f4f4f4; /* 見本の入力欄の色 */
+    background-color: #f4f4f4;
     color: #333;
     font-size: 14px;
 }
 
-/* ログイン・登録ボタン：見本のブラウン */
 .form-btn {
     margin-top: 50px;
     text-align: center;
@@ -69,14 +62,12 @@
     background-color: #a38f7d;
 }
 
-/* エラーメッセージ */
 .error-message {
     color: #ff0000;
     font-size: 13px;
     margin-top: 5px;
 }
 
-/* プレースホルダーの色 */
 ::placeholder {
     color: #ccc;
 }

@@ -218,7 +218,6 @@
     border-color: #8b7969;
 }
 
-/* 非表示にしたい説明テキスト（"Showing 1 to 7..." など）を隠す */
 .pagination-wrapper nav .flex.justify-between.items-center {
     display: none;
 }
