@@ -74,39 +74,35 @@ textarea {
 
 .form__input--tel {
     display: flex;
-    gap: 10px; /* ボックス間の隙間 */
-    align-items: flex-start; /* 上揃えにしてエラーが下に伸びるようにする */
+    gap: 10px;
+    align-items: flex-start;
 }
 
 .form__input--tel input {
-    flex: none; /* これを追加 */
+    flex: none;
     width: 100%;
 }
 
-/* 新規追加：各入力欄とエラーを縦に並べる */
 .tel-container {
     display: flex;
     flex-direction: column;
-    flex: 1; /* 3つのボックスを均等な幅にする */
+    flex: 1;
 }
 
-/* 既存の .form__input--tel input を修正 */
 .form__input--tel input {
-    width: 100%; /* containerいっぱいに広げる */
+    width: 100%;
 }
 
-/* 新規追加：ハイフンの位置を調整 */
 .tel-separator {
-    padding-top: 10px; /* 入力ボックスの高さに合わせて調整 */
+    padding-top: 10px;
     color: #333;
 }
 
-/* 既存の .form__error を確認（今のままでOK） */
 .form__error {
     color: #ff0000;
     font-size: 12px;
     margin-top: 2px;
-    min-height: 15px; /* エラーがなくても高さを確保してガタつきを防ぐ */
+    min-height: 15px;
 }
 
 .form__input--radio {

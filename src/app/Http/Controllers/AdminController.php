@@ -86,7 +86,7 @@ class AdminController extends Controller
 
         $callback = function() use ($contacts, $csvHeader, $genders) {
             $file = fopen('php://output', 'w');
-            fputs($file, chr(0xEF) . chr(0xBB) . chr(0xBF)); // 文字化け対策(BOM)
+            fputs($file, chr(0xEF) . chr(0xBB) . chr(0xBF));
             fputcsv($file, $csvHeader);
 
             foreach ($contacts as $contact) {

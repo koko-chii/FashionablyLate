@@ -19,7 +19,6 @@ class ContactController extends Controller
     public function confirm(ContactRequest $request)
     {
         $contact = $request->all();
-
         $category = Category::find($contact['category_id']);
         $category_content = $category ? $category->content : '';
 
@@ -37,8 +36,7 @@ class ContactController extends Controller
             'email', 'tel', 'address', 'building', 'detail'
         ]);
 
-    $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
-
+        $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
         Contact::create($contact);
 
         return view('thanks');
@@ -56,25 +54,21 @@ class ContactController extends Controller
                         ->orWhere('email', 'like', '%' . $request->keyword . '%');
                 }
             })
-
             ->where(function($query) use ($request) {
                 if (!is_null($request->gender) && $request->gender !== '') {
                     $query->where('gender', $request->gender);
                 }
             })
-
             ->where(function($query) use ($request) {
                 if ($request->category_id) {
                     $query->where('category_id', $request->category_id);
                 }
             })
-
             ->where(function($query) use ($request) {
                 if ($request->date) {
                     $query->whereDate('created_at', $request->date);
                 }
             })
-
             ->paginate(7);
 
         return view('admin', compact('contacts', 'categories'));

@@ -15,16 +15,16 @@ class ContactRequest extends FormRequest
     public function rules(): array
     {
         return [
-        'first_name' => ['required', 'string', 'max:8'],
-        'last_name'  => ['required', 'string', 'max:8'],
-        'gender'     => ['required'],
-        'email'      => ['required', 'email'],
-        'tel1'        => ['required', 'numeric', 'digits_between:1,5'],
-        'tel2'        => ['required', 'numeric', 'digits_between:1,5'],
-        'tel3'        => ['required', 'numeric', 'digits_between:1,5'],
-        'address'    => ['required'],
-        'category_id'=> ['required'],
-        'detail'     => ['required', 'max:120'],
+            'first_name' => ['required', 'string', 'max:8'],
+            'last_name'  => ['required', 'string', 'max:8'],
+            'gender'     => ['required'],
+            'email'      => ['required', 'email'],
+            'tel1'        => ['required', 'numeric', 'digits_between:1,5'],
+            'tel2'        => ['required', 'numeric', 'digits_between:1,5'],
+            'tel3'        => ['required', 'numeric', 'digits_between:1,5'],
+            'address'    => ['required'],
+            'category_id'=> ['required'],
+            'detail'     => ['required', 'max:120'],
         ];
     }
 
