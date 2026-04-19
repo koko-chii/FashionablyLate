@@ -30,7 +30,7 @@ class AdminController extends Controller
                     ->orWhere('email', 'LIKE', "%{$request->keyword}%");
             });
         }
-        if ($request->filled('gender')) {
+        if ($request->filled('gender') && $request->gender !== 'all') {
             $query->where('gender', $request->gender);
         }
 
@@ -67,7 +67,7 @@ class AdminController extends Controller
                     ->orWhere('email', 'LIKE', "%{$keyword}%");
             });
         }
-        if ($request->filled('gender')) {
+        if ($request->filled('gender') && $request->gender !== 'all') {
             $query->where('gender', $request->gender);
         }
         if ($request->filled('category_id')) {
