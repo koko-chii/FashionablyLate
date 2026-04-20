@@ -13,7 +13,7 @@
 @section('content')
 <div class="login-content">
     <div class="login-header">
-        <h2>Login</h2>
+        <h1>Login</h1>
     </div>
 
     <div class="login-form-inner">

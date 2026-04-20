@@ -16,7 +16,7 @@
 @section('content')
 <div class="admin-content">
     <div class="admin-header">
-        <h2>Admin</h2>
+        <h1>Admin</h1>
     </div>
 
     {{-- 検索フォームエリア --}}

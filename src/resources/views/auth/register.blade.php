@@ -13,7 +13,7 @@
 @section('content')
 <div class="register-content">
     <div class="register-header">
-        <h2>Register</h2>
+        <h1>Register</h1>
     </div>
 
     <div class="register-form-inner">

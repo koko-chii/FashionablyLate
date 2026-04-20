@@ -7,7 +7,7 @@
 @section('content')
 <div class="confirm-content">
     <div class="confirm-header">
-        <h2>Confirm</h2>
+        <h1>Confirm</h1>
     </div>
 
     <form action="{{ route('contacts.store') }}" method="POST">

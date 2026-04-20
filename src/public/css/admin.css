@@ -4,10 +4,11 @@
     min-height: 80vh;
 }
 
-.admin-header h2 {
+.admin-header h1 {
     text-align: center;
     color: #8b7969;
-    font-size: 24px;
+    font-size: 32px;
+    font-weight: normal;
     margin-bottom: 20px;
 }
 
