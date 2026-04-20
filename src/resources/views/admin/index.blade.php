@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 @endsection
 
+@section('js')
+<script src="{{ asset('js/admin.js') }}" defer></script>
+@endsection
+
 @section('header-nav')
 <nav>
     <form action="/logout" method="post">
@@ -84,27 +88,20 @@
                     <td>{{ $contact->email }}</td>
                     <td>{{ $contact->category->content }}</td>
                     <td>
-                        <button class="btn-detail" onclick="showModal(this)">詳細</button>
 
-                        {{-- 【重要】隠しデータエリア：この行のデータをモーダルに表示させるための箱 --}}
-                        <div class="contact-data" style="display: none;">
-                            <table class="modal-inner-table">
-                                <tr><th>お名前</th><td>{{ $contact->first_name }}　{{ $contact->last_name }}</td></tr>
-                                <tr><th>性別</th><td>{{ $genders[$contact->gender] }}</td></tr>
-                                <tr><th>メールアドレス</th><td>{{ $contact->email }}</td></tr>
-                                <tr><th>電話番号</th><td>{{ str_replace('-', '', $contact->tel) }}</td></tr>
-                                <tr><th>住所</th><td>{{ $contact->address }}</td></tr>
-                                <tr><th>建物名</th><td>{{ $contact->building }}</td></tr>
-                                <tr><th>お問い合わせの種類</th><td>{{ $contact->category->content }}</td></tr>
-                                <tr><th>お問い合わせ内容</th><td>{{ $contact->detail }}</td></tr>
-                            </table>
-                            {{-- 削除ボタン --}}
-                            <form action="{{ route('admin.delete') }}" method="POST" class="delete-form">
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $contact->id }}">
-                                <button type="submit" class="btn-delete-submit" onclick="return confirm('本当に削除しますか？')">削除</button>
-                            </form>
-                        </div>
+                        <button class="btn-detail js-modal-open"
+                            data-first-name="{{ $contact->first_name }}"
+                            data-last-name="{{ $contact->last_name }}"
+                            data-gender="{{ $genders[$contact->gender] }}"
+                            data-email="{{ $contact->email }}"
+                            data-tel="{{ str_replace('-', '', $contact->tel) }}"
+                            data-address="{{ $contact->address }}"
+                            data-building="{{ $contact->building }}"
+                            data-category="{{ $contact->category->content }}"
+                            data-detail="{{ $contact->detail }}"
+                            data-id="{{ $contact->id }}">
+                            詳細
+                        </button>
                     </td>
                 </tr>
                 @endforeach
@@ -113,33 +110,33 @@
     </div>
 </div>
 
-{{-- 詳細モーダル --}}
-<div id="detail-modal" class="modal" style="display: none;">
+{{-- 詳細モーダル（ループの外側に1つだけ配置） --}}
+<div id="detail-modal" class="modal">
     <div class="modal-content">
         <div class="modal-close-wrapper">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <button class="modal-close js-modal-close">&times;</button>
         </div>
+
         <div id="modal-body">
-            {{-- ここにJSでデータが流し込まれます --}}
+            {{-- JSから値を受け取るための空のテーブル --}}
+            <table class="modal-inner-table">
+                <tr><th>お名前</th><td id="mdl-name"></td></tr>
+                <tr><th>性別</th><td id="mdl-gender"></td></tr>
+                <tr><th>メールアドレス</th><td id="mdl-email"></td></tr>
+                <tr><th>電話番号</th><td id="mdl-tel"></td></tr>
+                <tr><th>住所</th><td id="mdl-address"></td></tr>
+                <tr><th>建物名</th><td id="mdl-building"></td></tr>
+                <tr><th>お問い合わせの種類</th><td id="mdl-category"></td></tr>
+                <tr><th>お問い合わせ内容</th><td id="mdl-detail"></td></tr>
+            </table>
         </div>
+
+        {{-- 削除ボタン --}}
+        <form action="{{ route('admin.delete') }}" method="POST" class="delete-form">
+            @csrf
+            <input type="hidden" name="id" id="modal-delete-id" value="">
+            <button type="submit" class="btn-delete-submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+        </form>
     </div>
 </div>
-
-{{-- 動きをつけるためのJavaScript --}}
-<script>
-function showModal(btn) {
-    // ボタンのすぐ隣にある「contact-data」クラスのHTMLを取得
-    const data = btn.nextElementSibling.innerHTML;
-    // モーダルの body 部分にそのHTMLをコピーする
-    document.getElementById('modal-body').innerHTML = data;
-    // モーダルを表示する（CSSで設定した .modal に合わせる）
-    document.getElementById('detail-modal').style.display = 'flex';
-}
-
-function closeModal() {
-    // モーダルを非表示にする
-    document.getElementById('detail-modal').style.display = 'none';
-}
-
-</script>
 @endsection

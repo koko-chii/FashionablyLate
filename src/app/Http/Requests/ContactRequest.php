@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContactRequest extends FormRequest
@@ -14,6 +13,12 @@ class ContactRequest extends FormRequest
 
     public function rules(): array
     {
+        if ($this->isMethod('delete') || $this->routeIs('admin.delete') || $this->has('id')) {
+            return [
+                'id' => ['required', 'exists:contacts,id'],
+            ];
+        }
+
         return [
             'first_name' => ['required', 'string', 'max:8'],
             'last_name'  => ['required', 'string', 'max:8'],

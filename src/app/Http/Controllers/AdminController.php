@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
@@ -50,7 +49,11 @@ class AdminController extends Controller
 
     public function destroy(Request $request)
     {
-        \App\Models\Contact::find($request->id)->delete();
+        $request->validate([
+            'id' => 'required|exists:contacts,id'
+        ]);
+
+        Contact::find($request->id)->delete();
 
         return redirect()->back()->with('success', '削除しました');
     }
