@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -25,7 +24,7 @@ class ContactController extends Controller
         return view('confirm', compact('contact', 'category_content'));
     }
 
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
         if($request->has('back')){
             return redirect('/')->withInput();
@@ -42,7 +41,7 @@ class ContactController extends Controller
         return view('thanks');
     }
 
-    public function admin(Request $request)
+    public function admin(ContactRequest $request)
     {
         $categories = Category::all();
 
@@ -81,35 +80,38 @@ class ContactController extends Controller
         return redirect('/admin');
     }
 
-    public function export(Request $request)
+    public function export(ContactRequest $request)
     {
-        $contacts = Contact::with('category')
-            ->get();
-
+        $contacts = Contact::with('category')->get();
         $csvHeader = ['お名前', '性別', 'メールアドレス', 'お問い合わせの種類', 'お問い合わせ内容'];
-        $csvData = [];
 
-        foreach ($contacts as $contact) {
-            $gender = $contact->gender == 1 ? '男性' : ($contact->gender == 2 ? '女性' : 'その他');
-            $csvData[] = [
-                $contact->last_name . $contact->first_name,
-                $gender,
-                $contact->email,
-                $contact->category->content,
-                $contact->detail,
-            ];
-        }
+        $filename = "contacts_" . date('YmdHis') . ".csv";
 
-        $response = new \Symfony\Component\HttpFoundation\StreamedResponse(function() use ($csvHeader, $csvData) {
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename=\"$filename\"",
+        ];
+
+        $callback = function() use ($csvHeader, $contacts) {
             $handle = fopen('php://output', 'w');
+
+            fputs($handle, chr(0xEF) . chr(0xBB) . chr(0xBF));
+
             fputcsv($handle, $csvHeader);
-            foreach ($csvData as $row) {
-                fputcsv($handle, $row);
+
+            foreach ($contacts as $contact) {
+                $gender = $contact->gender == 1 ? '男性' : ($contact->gender == 2 ? '女性' : 'その他');
+                fputcsv($handle, [
+                    $contact->last_name . $contact->first_name,
+                    $gender,
+                    $contact->email,
+                    $contact->category->content ?? '',
+                    $contact->detail,
+                ]);
             }
             fclose($handle);
-        }, 200,);
+        };
 
-        return $response;
+        return response()->stream($callback, 200, $headers);
     }
-
 }

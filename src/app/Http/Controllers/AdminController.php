@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\AdminRequest;
 use App\Models\Category;
 use App\Models\Contact;
 
@@ -16,7 +16,7 @@ class AdminController extends Controller
         return view('admin.index', compact('categories', 'contacts'));
     }
 
-    public function search(Request $request)
+    public function search(AdminRequest $request)
     {
         $categories = Category::all();
         $query = Contact::query();
@@ -47,18 +47,14 @@ class AdminController extends Controller
         return view('admin.index', compact('categories', 'contacts'));
     }
 
-    public function destroy(Request $request)
+    public function destroy(AdminRequest $request)
     {
-        $request->validate([
-            'id' => 'required|exists:contacts,id'
-        ]);
-
         Contact::find($request->id)->delete();
 
         return redirect()->back()->with('success', '削除しました');
     }
 
-    public function export(Request $request)
+    public function export(AdminRequest $request)
     {
         $query = Contact::query();
 
